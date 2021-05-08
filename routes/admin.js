@@ -5,7 +5,10 @@ const rootDir = require("../util/path");
 const products = [];
 
 router.get("/add-product", (req, res, next) => {
-  res.render("add-product");
+  res.render("add-product", {
+    docTitle: "Add Product",
+    path: "/admin/add-product",
+  });
 });
 
 router.post("/add-product", (req, res, next) => {
