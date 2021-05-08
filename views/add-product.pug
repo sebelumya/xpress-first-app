@@ -1,24 +1,27 @@
 extends layouts/main-layout.pug
+
 block style 
-        link(rel='stylesheet' href='/css/form.css')
+        link(rel='stylesheet' href='/css/forms.css')
         link(rel='stylesheet' href='/css/product.css')
 
 block content
     main
-    form.product-form(action='/admin/add-product' method='POST' autocomplete='off')
-        .form-control
-        label(for='title') Title
-        input#title(type='text' name='title' placeholder='Type here')
-        .form-control
-        label(for='price') Price
-        input#price(type='text' name='price' placeholder='without $ sign')
-        .form-control
-        label(for='image') Image Link
-        input(type='text' name='image' placeholder='url (http://...)')
-        .form-control
-        label(for='alt') alt
-        input(type='text' name='alt' placeholder='alt')
-        .form-control
-        label(for='desc') Description
-        textarea#desc(rows='4' cols='50' name='desc' placeholder='Type here!')
-        button(type='submit') Add Product
+        form.product-form(action='/admin/add-product' method='POST' autocomplete='off')
+        
+            .form-control
+                label(for='title') Title
+                input#title(type='text' name='title' placeholder='Type here')
+            .form-control
+                label(for='price') Price
+                input#price(type='text' name='price' placeholder='without $ sign')
+            .form-control
+                label(for='image') Image Link
+                input(type='text' name='image' placeholder='url (http://...)')
+            .form-control
+                label(for='alt') alt
+                input(type='text' name='alt' placeholder='alt')
+            
+            .form-control
+                label(for='desc') Description
+                textarea#desc(rows='4' cols='50' name='desc' placeholder='Type here!')
+            button(type='submit') Add Product

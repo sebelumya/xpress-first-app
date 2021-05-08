@@ -1,7 +1,7 @@
 {
   "name": "express-js-first-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "First Express JS App",
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -17,6 +17,17 @@
     "start": "nodemon app.js",
     "start-server": "nodemon app.js"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Hamzah",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebelumya/xpress-first-app.git"
+  },
+  "keywords": [
+    "express.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/sebelumya/xpress-first-app/issues"
+  },
+  "homepage": "https://github.com/sebelumya/xpress-first-app#readme"
 }
