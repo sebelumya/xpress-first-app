@@ -5,9 +5,10 @@
 }
 
 body {
-  padding: 0;
+  padding: 30;
   margin: 0;
   font-family: "Open Sans", sans-serif;
+  background: coral;
 }
 
 main {
@@ -59,7 +60,14 @@ main {
 }
 
 .card {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+  background: white;
+}
+
+.card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+  background: white;
+  width: 21rem;
 }
 
 .card__header,
