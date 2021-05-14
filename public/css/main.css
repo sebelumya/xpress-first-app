@@ -63,17 +63,15 @@ main {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
   background: white;
 }
+.card__header,
+.card__content {
+  padding: 1rem;
+}
 
 .card:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
   background: white;
   width: 21rem;
-  height: 15rem;
-}
-
-.card__header,
-.card__content {
-  padding: 1rem;
 }
 
 .card__header h1,
