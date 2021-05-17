@@ -1,10 +1,10 @@
-<%- include('include/head.ejs') %>
+<%- include('../include/head.ejs') %>
     <link rel="stylesheet" href="/css/product.css">
     </head>
 
     <body>
 
-        <%- include('include/nav.ejs') %>
+        <%- include('../include/nav.ejs') %>
 
 
             <main>
@@ -18,7 +18,7 @@
                                     </h1>
                                 </header>
                                 <div class="card__image">
-                                    <img src=<%=product.img %> alt=<%= product.alt %>>
+                                    <img src=<%=product.imageURL %> alt=<%= product.alt %>>
                                 </div>
                                 <div class="card__content">
                                     <h2 class="product__price">$
@@ -29,7 +29,7 @@
                                     </p>
                                 </div>
                                 <div class="card__actions">
-                                    <button class="btn">Add to Cart</button>
+                                    <%- include('../include/addToCart', {product:product}) %>
                                 </div>
                             </article>
                             <% } %>
@@ -38,4 +38,4 @@
                         <h1>No Products Found!</h1>
                         <% } %>
             </main>
-            <%- include('include/end.ejs') %>
+            <%- include('../include/end.ejs') %>

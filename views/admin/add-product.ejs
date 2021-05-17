@@ -1,11 +1,11 @@
-<%- include('include/head.ejs') %>
+<%- include('../include/head.ejs') %>
     <link rel="stylesheet" href="/css/forms.css">
     <link rel="stylesheet" href="/css/product.css">
 
     </head>
 
     <body>
-        <%- include('include/nav.ejs') %>
+        <%- include('../include/nav.ejs') %>
 
             <main>
                 <form class="product-form" action="/admin/add-product" method="POST" autocomplete="off">
@@ -15,11 +15,11 @@
                     </div>
                     <div class="form-control">
                         <label for="price">Price</label>
-                        <input type="text" name="price" id="price" placeholder="without $ sign">
+                        <input type="number" step="0.01" name="price" id="price" placeholder="without $ sign">
                     </div>
                     <div class="form-control">
-                        <label for="image">Image Link</label>
-                        <input type="text" name="image" placeholder="url (http://...)">
+                        <label for="image">Image URL</label>
+                        <input type="text" name="imageURL" placeholder="url (http://...)">
                     </div>
                     <div class="form-control">
                         <label for="alt">alt</label>
@@ -33,4 +33,4 @@
                     <button type="submit">Add Product</button>
                 </form>
             </main>
-            <%- include('include/end.ejs') %>
+            <%- include('../include/end.ejs') %>
