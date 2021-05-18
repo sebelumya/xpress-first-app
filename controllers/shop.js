@@ -1,4 +1,5 @@
 const Product = require("../models/product");
+const Cart = require("../models/cart");
 
 exports.getProducts = (req, res, next) => {
   Product.fetchAll((products) => {
@@ -9,11 +10,10 @@ exports.getProducts = (req, res, next) => {
     });
   });
 };
-
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
   Product.findById(prodId, (product) => {
-    console.log(product);
+    console.log(products);
     res.render("shop/product-details", {
       product: product,
       docTitle: product.title + " | Details",
@@ -21,7 +21,6 @@ exports.getProduct = (req, res, next) => {
     });
   });
 };
-
 exports.getIndex = (req, res, next) => {
   Product.fetchAll((products) => {
     res.render("shop/index", {
@@ -31,20 +30,42 @@ exports.getIndex = (req, res, next) => {
     });
   });
 };
+
 exports.getCart = (req, res, next) => {
-  Product.fetchAll((products) => {
-    res.render("shop/cart", {
-      prods: products,
-      docTitle: "Your Cart",
-      path: "/cart",
+  Cart.getCart((cart) => {
+    Product.fetchAll((products) => {
+      const cartProducts = [];
+      for (product of products) {
+        const cartProductData = cart.products.find(
+          (prod) => prod.id === product.id
+        );
+        if (cartProductData) {
+          cartProducts.push({ productData: product, qty: cartProductData.qty });
+        }
+      }
+      res.render("shop/cart", {
+        prods: products,
+        docTitle: "Your Cart",
+        path: "/cart",
+        products: cartProducts,
+      });
     });
   });
 };
 
 exports.postCart = (req, res, next) => {
   const prodId = req.body.productId;
-  console.log(prodId);
+  Product.findById(prodId, (products) => {
+    Cart.addProduct(prodId, products.price);
+  });
   res.redirect("/cart");
+};
+exports.postCartDeleteProduct = (req, res, next) => {
+  const prodId = req.body.productId;
+  Product.findById(prodId, (product) => {
+    Cart.deleteProduct(prodId, product.price);
+    res.redirect("/cart");
+  });
 };
 
 exports.getOrders = (req, res, next) => {
