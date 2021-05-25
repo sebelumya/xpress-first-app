@@ -8,14 +8,14 @@
                 <h1>
                     <%= product.title %>
                 </h1>
-                <div>
+                <div class='image'>
                     <img src=<%=product.imageURL %> alt=<%= product.alt %>>
                 </div>
                 <h2>
                     <%= product.price %>
                 </h2>
                 <p>
-                    <%= product.desc %>
+                    <%= product.description %>
                 </p>
                 <%- include('../include/addToCart', {product:product}) %>
             </main>

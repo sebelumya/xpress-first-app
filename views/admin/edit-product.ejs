@@ -34,7 +34,7 @@
                     <div class="form-control">
                         <label for="desc">Description</label>
                         <textarea rows="4" cols="50" name="desc" id="desc"
-                            placeholder="Type here!"><% if (editing) { %><%= product.desc %><% } %></textarea>
+                            placeholder="Type here!"><% if (editing) { %><%= product.description %><% } %></textarea>
                     </div>
                     <% if (editing) { %> <input type="hidden" value="<%= product.id %>" name="productId">
                         <% } %>
