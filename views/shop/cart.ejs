@@ -1,4 +1,6 @@
 <%- include('../include/head.ejs') %>
+    <link rel="stylesheet" href="/css/cart.css">
+
     </head>
 
     <body>
@@ -6,19 +8,28 @@
         <%- include('../include/nav.ejs') %>
             <main>
                 <% if (products.length> 0) { %>
-                    <ul>
+                    <ul class="cart__item-list">
                         <% products.forEach(p=> { %>
-                            <li>
-                                <p>
-                                    <%= p.title %> (<%= p.cartItem.quantity %>)
-                                </p>
-                                <form action="/cart-delete-item" method="POST">
-                                    <input type="hidden" value="<%= p.id %>" name="productId">
-                                    <button class="btn" type="submit">Delete</button>
-                                </form>
+                            <li class="cart__item">
+                                <h1>
+                                    <%= p.title %>
+                                </h1>
+                                <h2>
+                                    <%= p.cartItem.quantity %>
+                                </h2>
+                                <div>
+                                    <form action="/create-order" method="POST">
+                                        <button type="submit" class="btn">Order Now!</button>
+                                    </form>
+                                    <form action="/cart-delete-item" method="POST">
+                                        <input type="hidden" value="<%= p.id %>" name="productId">
+                                        <button class="btn danger" type="submit">Delete</button>
+                                    </form>
+                                </div>
                             </li>
                             <% }) %>
                     </ul>
+
                     <% } else { %>
                         <h1>No Products in Cart!</h1>
                         <% } %>

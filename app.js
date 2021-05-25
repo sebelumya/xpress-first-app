@@ -8,7 +8,8 @@ const error = require("./controllers/error");
 const sequelize = require("./util/database");
 const router = require("./routes/shop");
 const app = express();
-
+const Order = require("./models/order");
+const OrderItem = require("./models/order-items");
 const Cart = require("./models/cart");
 const CartItem = require("./models/cart-item");
 const { getProducts } = require("./controllers/admin");
@@ -41,6 +42,9 @@ Cart.belongsTo(User);
 Cart.belongsToMany(Product, { through: CartItem });
 Product.belongsToMany(Cart, { through: CartItem });
 
+Order.belongsTo(User);
+User.hasMany(Order);
+Order.belongsToMany(Product, { through: OrderItem });
 sequelize
   // .sync({ force: true })
   .sync()

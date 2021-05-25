@@ -18,7 +18,7 @@
                                     </h1>
                                 </header>
                                 <div class="card__image">
-                                    <img src=<%=product.imageURL %> alt=<%= product.alt %>>
+                                    <img src=<%=product.imageURL %> alt="<%= product.alt %>">
                                 </div>
                                 <div class="card__content">
                                     <h2 class="product__price">$
@@ -29,6 +29,7 @@
                                     </p>
                                 </div>
                                 <div class="card__actions">
+                                    <a href="/products/<%= product.id %>" class="btn">Details</a>
                                     <%- include('../include/addToCart', {product:product}) %>
                                 </div>
                             </article>
